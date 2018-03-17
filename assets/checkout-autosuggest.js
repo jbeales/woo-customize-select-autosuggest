@@ -2,14 +2,8 @@
 (function($) {
 
 
-	$.fn.select2.amd.require(['select2/compat/matcher'], function() {
-		//	jQuery.fn.select2.defaults.set('matcher', jb_test_matcher );
-	});
-	$.fn.select2.defaults.set('matcher', jb_test_matcher );
-
-
 	// Based on custom matcher here: https://select2.org/searching#customizing-how-results-are-matched
-	function jb_test_matcher(params, data ) {
+	function start_matcher(params, data ) {
 		
 		// If there are no search terms, return all of the data
 	    if ($.trim(params.term) === '') {
@@ -32,6 +26,10 @@
 	    return null;
 
 	}
+
+
+	$.fn.select2.defaults.set('matcher', start_matcher );
+
 
 
 })(jQuery);
